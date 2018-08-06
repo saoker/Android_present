@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>VNBIG</title>
+    <meta name=screen-orientation content=portrait>
+    <meta name=full-screen content=yes>
+    <meta data-n-head=true name=referrer content=no-referrer>
+    <meta name=x5-orientation content=portrait>
+    <meta name=x5-fullscreen content=true>
+    <meta name=x5-page-mode content=app>
+    <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name=format-detection content="telephone=no">
+    <meta http-equiv=x-rim-auto-match content=none>
+    <meta itemprop=name content=VNBIG>
+    <meta itemprop=description content=VNBIG>
+    <link rel=icon href=static/img/favicon.png type=image/x-png>
+    <link rel=stylesheet href=static/css/framework7.ios.min.css>
+    <style>
+		.spinner {
+			width: 84px;
+			height: 30px;
+			position: absolute;
+			left: 50%;
+			top: 40%;
+			transform: translate(-50%, -50%);
+			display: none;
+		}
+
+		.spinner img {
+			height: 100%;
+		}
+
+		.share {
+			width: 0;
+			height: 0;
+			overflow: hidden;
+		}
+	</style>
+    <link href=static/css/app.b7d8acf6b8c83e18d24039da11e6715f.css rel=stylesheet>
+
+    <script type=text/javascript src=static/js/app_plugins.js></script>
+</head>
+
+<body ontouchstart="" style="background: #08232b;">
+<div id=app-box></div>
+<div class=spinner id=app-loading></div>
+<script>
+		;
+		(function(window, document) {
+			function setFontSize() {
+				var designWidth = 750,
+					rem2px = 100,
+					div = window.document.createElement('div'),
+					docEle = document.documentElement,
+					body = document.body
+				div.style.width = '1rem'
+				div.style.display = 'none'
+				body.appendChild(div)
+				var defaultFontSize = body.fontSizes || parseFloat(window.getComputedStyle(div, null).getPropertyValue('width')),
+					winW = Math.min((docEle.getBoundingClientRect().width || window.innerWidth), 450)
+				body.fontSizes = defaultFontSize
+				docEle.style.fontSize = winW / designWidth * rem2px / defaultFontSize * 100 + '%'
+				document.body.removeChild(div)
+			}
+
+			var resize = 'onorientationchange' in window ? 'orientationchange' : 'resize'
+			var timer = null
+			window.addEventListener(resize, function() {
+				clearTimeout(timer)
+				timer = setTimeout(setFontSize, 300)
+			}, false)
+			setFontSize()
+		}(window, document));
+		(function(window, document) {
+			window.addEventListener('load', function() {
+				// document.body.removeChild(document.getElementById('app-loading'))
+			}, false)
+		}(window, document))
+	</script>
+<script>
+		! function(e) {
+			var c = window.webpackJsonp;
+			window.webpackJsonp = function(d, b, n) {
+				for(var r, t, o, i = 0, u = []; i < d.length; i++) t = d[i], a[t] && u.push(a[t][0]), a[t] = 0;
+				for(r in b) Object.prototype.hasOwnProperty.call(b, r) && (e[r] = b[r]);
+				for(c && c(d, b, n); u.length;) u.shift()();
+				if(n)
+					for(i = 0; i < n.length; i++) o = f(f.s = n[i]);
+				return o
+			};
+			var d = {},
+				a = {
+					71: 0
+				};
+
+			function f(c) {
+				if(d[c]) return d[c].exports;
+				var a = d[c] = {
+					i: c,
+					l: !1,
+					exports: {}
+				};
+				return e[c].call(a.exports, a, a.exports, f), a.l = !0, a.exports
+			}
+			f.e = function(e) {
+				var c = a[e];
+				if(0 === c) return new Promise(function(e) {
+					e()
+				});
+				if(c) return c[2];
+				var d = new Promise(function(d, f) {
+					c = a[e] = [d, f]
+				});
+				c[2] = d;
+				var b = document.getElementsByTagName("head")[0],
+					n = document.createElement("script");
+				n.type = "text/javascript", n.charset = "utf-8", n.async = !0, n.timeout = 12e4, f.nc && n.setAttribute("nonce", f.nc), n.src = f.p + "static/js/" + e + "." + {
+					0: "045d1ad6f0a3fdc6fb0f",
+					1: "f81f7d2c2d80a4d12273",
+					2: "a3858b42d861e9adb870",
+					3: "fcf24807cc370fdda4f7",
+					4: "e609656b6271d1457916",
+					5: "721f2b630c83191a3114",
+					6: "0fe4e5b48c62421e54e5",
+					7: "cdd38d5b47460a3522f3",
+					8: "fcafab180bc8317aff4c",
+					9: "fb8e09dc004340dce358",
+					10: "4653c5f3ea65769e5b4e",
+					11: "600c04733c35833fb56c",
+					12: "2c8910a80388740028c8",
+					13: "004499a1be9bfc90451e",
+					14: "06f4f508b6744c0d553b",
+					15: "9894316bcb7840bfa3d4",
+					16: "e423e9139d3c1b3a2db2",
+					17: "7add52ebee59b6787220",
+					18: "de3d02cec1e63a885859",
+					19: "fede09e32b5ea3283dd7",
+					20: "8c7642a68b8ed7bcf3dd",
+					21: "450d081ff0e6c055f55b",
+					22: "f0d0dfaca67bcac90acc",
+					23: "5340767deeecb30792e3",
+					24: "2b244f8ec01f1d22dccf",
+					25: "d43e1b4ad7591b38ae1b",
+					26: "587c4bac848f1d88e2fc",
+					27: "574cb0530c08322b455c",
+					28: "32873303368db52f8524",
+					29: "8e9eb64e3769542bde28",
+					30: "ffeeacb0ede7781b454d",
+					31: "14b2d49ebe4cc60207d8",
+					32: "0dd79b356a9e5c139824",
+					33: "1d32d603635b8fdea44a",
+					34: "2ca253b15c32f043f350",
+					35: "c0f460b9c06705ebd6f7",
+					36: "d0454924678c74c7e78f",
+					37: "7d3ab7b1d6540a974071",
+					38: "083f6da53e27a43b1226",
+					39: "bc9df4c7ec2688cdbf25",
+					40: "3955ccc12620fdcb469a",
+					41: "9f5164665238e734bf7d",
+					42: "a5a347a6304dc7037c76",
+					43: "173d91456e17e7ca7b9d",
+					44: "9e18b9bb25810483a517",
+					45: "9456bae73f5d356267e6",
+					46: "e8015a5f2158c02e6a96",
+					47: "38007de1b961d5683675",
+					48: "276bd2d66840adba7d00",
+					49: "1b75a88c3cc88665a333",
+					50: "5e62c8ae96cf212714db",
+					51: "5ffbd4a42a999c4672f2",
+					52: "3af8e114144bb1b74120",
+					53: "7cc6f4e0c6aa379cc982",
+					54: "7fa0e366eb293aa16297",
+					55: "37278353ee3e8cd6c4e9",
+					56: "303c859b7fed1587cdda",
+					57: "dbced2a8f08a5893c2a7",
+					58: "30c2d1cb21f4d315feed",
+					59: "e18ea1f3145208aad0ad",
+					60: "42cc6d4b5b23d1752d4c",
+					61: "a32a9a29c6f4b32c9cd0",
+					62: "8f92b54abc3d740c4c2d",
+					63: "80be8532491b7480b315",
+					64: "488fb2ad3fd3961478dc",
+					65: "c8e023492347259c57e9",
+					66: "b691d1d377d866e01d09",
+					67: "7ab666f84a6d37a97699",
+					68: "7894d48f6aca2981a523",
+					69: "9dbe57ee8dbfffcdc899",
+					70: "ef3c6e40ee10b14b4b40"
+				}[e] + ".js";
+				var r = setTimeout(t, 12e4);
+
+				function t() {
+					n.onerror = n.onload = null, clearTimeout(r);
+					var c = a[e];
+					0 !== c && (c && c[1](new Error("Loading chunk " + e + " failed.")), a[e] = void 0)
+				}
+				return n.onerror = n.onload = t, b.appendChild(n), d
+			}, f.m = e, f.c = d, f.d = function(e, c, d) {
+				f.o(e, c) || Object.defineProperty(e, c, {
+					configurable: !1,
+					enumerable: !0,
+					get: d
+				})
+			}, f.n = function(e) {
+				var c = e && e.__esModule ? function() {
+					return e.default
+				} : function() {
+					return e
+				};
+				return f.d(c, "a", c), c
+			}, f.o = function(e, c) {
+				return Object.prototype.hasOwnProperty.call(e, c)
+			}, f.p = "", f.oe = function(e) {
+				throw console.error(e), e
+			}
+		}([]);
+	</script>
+
+<script>
+			var versionCode; //当前版本号
+			function plusReady() {
+				window.plus.key.addEventListener('backbutton', function() {
+					if(!history.state || history.state.view_0.url.indexOf('/index') === 0) {
+						if(confirm('确定要退出吗')) {
+							window.plus.runtime.quit()
+						}
+					} else {
+						window.plus.webview.currentWebview().back()
+					}
+				});
+				// 获取本地应用资源版本号
+				plus.runtime.getProperty(plus.runtime.appid, function(inf) {
+					versionCode = inf.version;
+					//console.log("-----------当前应用版本：" + versionCode);
+					//alert("-----------当前应用版本：" + versionCode);
+					//checkUpdate()
+					setTimeout("checkUpdate()","5000");
+				});
+			}
+			if(window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener('plusready', plusReady, false);
+			}
+
+			var downUrl; //下载地址
+			function checkUpdate() {
+				//版本检测地址
+				var checkUrl = "http://10.10.11.217:8083/common/version/checkappversion/_1/" + versionCode
+				//plus.nativeUI.showWaiting("检测更新...");
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function() {
+					switch(xhr.readyState) {
+						case 4:
+							//plus.nativeUI.closeWaiting();
+							if(xhr.status == 200) {
+								//console.log("-----------检测更新成功：" + xhr.response);
+								var resp = JSON.parse(xhr.response);
+								//console.log(typeof resp)
+								//console.log("-----------检测更新成功 解析json：" + resp.downloadAddress +"---" + resp.isUpgrade + "---" + resp.isModify);
+								downUrl = resp.downloadAddress;
+								if(resp && resp.isUpgrade) {
+									//需要强制更新
+									//console.log("强制更新");
+									downWgt()
+								} else {
+									if(resp && resp.isModify) {
+										//需要手动更新
+										if(confirm('检测到最新版本，是否更新？')) {
+											downWgt()
+										}
+									} else {
+										console.log("已是最新版，无需更新！");
+									}
+								}
+							} else {
+								console.log("检测失败");
+							}
+							break;
+						default:
+							break;
+					}
+				}
+				xhr.open('GET', checkUrl);
+				//xhr.send('user=HBuilder&test=value');
+				//console.log("-----------检测地址：" + checkUrl);
+				xhr.send();
+			}
+
+			function downWgt() {
+				//console.log("-----------下载地址：" + downUrl);
+				//plus.nativeUI.showWaiting("软件有更新，将跳转到下载页...");
+				plus.downloader.createDownload(downUrl, {
+					filename: "_doc/update/"
+				}, function(d, status) {        //_doc/update/默认路径
+					if(status == 200) {
+						//console.log("成功：" + d.filename);
+						//open(d.filename);         // 打开下载地址
+						//installWgt(d.filename);
+						plus.runtime.install(d.filename);
+					} else {
+						//console.log("打开下载页面失败！");
+						//plus.nativeUI.alert("打开下载页面失败！");
+					}
+					//plus.nativeUI.closeWaiting();
+				}).start();
+			}
+		</script>
+<script src="static/js/babel.min.js?v=1"></script>
+<script src="static/js/vendor.min.js?v=1"></script>
+<script src="static/js/framework7.min.js?v=1"></script>
+<script src=static/js/zendesk.js defer=defer async></script>
+<script type=text/javascript src=static/js/vendor.ef3c6e40ee10b14b4b40.js></script>
+<!--<script type=text/javascript src=static/js/app.9dbe57ee8dbfffcdc899.js></script>-->
+</body>
+
+</html>
