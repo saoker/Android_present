@@ -1,21 +1,20 @@
 package com.H5PlusPlugin;
 
-import io.dcloud.common.DHInterface.IWebview;
-import io.dcloud.common.DHInterface.StandardFeature;
-import io.dcloud.common.util.JSUtil;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.HBuilder.integrate.ActivityEntry;
+import com.vnbig.android.vnbigas.Tools.FileTools;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import io.dcloud.common.DHInterface.IWebview;
+import io.dcloud.common.DHInterface.StandardFeature;
+import io.dcloud.common.util.JSUtil;
 
 
 /**
@@ -34,6 +33,7 @@ public class PGPluginFirst extends StandardFeature {
     SharedPreferences sh;
     SharedPreferences.Editor editor;
     Context mContext;
+    String tag = "--";
 
     /**
      * author soker created 2018/7/17 17:03
@@ -63,10 +63,29 @@ public class PGPluginFirst extends StandardFeature {
         String ReturnValue = array.optString(1) + "-" + array.optString(2) + "-" + array.optString(3) + "-" + array.optString(4);
         Log.w(TAG, " Function ReturnValue = " + ReturnValue);
 
-//        mContext.sendBroadcast(new Intent(BR_ACTION_CLOSE));
-        ((Activity)mContext).startActivity(new Intent(mContext, ActivityEntry.class));
+
+//        ((Activity)mContext).startActivity(new Intent(mContext, ActivityEntry.class));
         // 调用方法将原生代码的执行结果返回给js层并触发相应的JS层回调函数
-        JSUtil.execCallback(pWebview, CallBackID, newArray, JSUtil.OK, false);
+
+
+        //原生下载更新资源文件
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                if (FileTools.startzip(mContext)) {
+                    //下载成功返回
+                    Log.e(TAG, " download success  ");
+                    tag = "download success";
+                    mContext.sendBroadcast(new Intent(BR_ACTION_CLOSE));
+                } else {
+                    //下载失败不反回
+                    Log.e(TAG, " download fail  ");
+                    tag = "download fail";
+                }
+            }
+        }).start();
+        JSUtil.execCallback(pWebview, CallBackID, tag, JSUtil.OK, false);
 
     }
 

@@ -70,8 +70,8 @@ public class SDK_WebApp extends Activity {
         brApp = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Log.w("SDK_WebApp", "BroadcastReceiver intent= " + intent.getAction());
-//                finish();
+                Log.e("SDK_WebApp", "BroadcastReceiver intent= " + intent.getAction());
+                finish();
                 System.exit(0);
             }
         };

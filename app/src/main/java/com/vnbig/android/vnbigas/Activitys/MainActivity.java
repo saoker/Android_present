@@ -2,11 +2,12 @@ package com.vnbig.android.vnbigas.Activitys;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Bundle;
 
 import com.HBuilder.integrate.SDK_WebApp;
+import com.vnbig.android.vnbigas.Tools.FileTools;
 
 public class MainActivity extends Activity {
 
@@ -25,13 +26,18 @@ public class MainActivity extends Activity {
         new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
-                Intent intent = new Intent(MainActivity.this,SDK_WebApp.class);
+                Intent intent = new Intent(MainActivity.this, SDK_WebApp.class);
                 startActivity(intent);
                 finsh();
                 return false;
-
             }
-        }).sendEmptyMessageDelayed(0,200);
+        }).sendEmptyMessageDelayed(0, 1000);
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                FileTools.startzip(MainActivity.this);
+//            }
+//        }).start();
 
     }
 
