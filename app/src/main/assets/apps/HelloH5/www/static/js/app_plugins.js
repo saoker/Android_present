@@ -42,11 +42,11 @@ document.addEventListener( "plusready",  function()
         }
     };
     window.plus.plugintest = plugintest;
-    alert('aaa')
+    //alert('aaaaa')
     var js = document.createElement('script')
-            js.src = 'static/js/app.5b27175778eae9cb3935.js'
+            js.src = 'static/js/app.86a84e61a2b325c0a41a.js'
             document.body.appendChild(js)
-            alert('eeee')
+            //alert('eeee')
 }, true );
 ;
 (function() {
@@ -92,21 +92,17 @@ document.addEventListener( "plusready",  function()
     function checkUpdate() {
         //版本检测地址
         var checkUrl = "http://10.10.11.217:8083/common/version/checkappversion/_1/" + versionCode
-        //plus.nativeUI.showWaiting("检测更新...");
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState !== 4) {
                 return
             }
-            //plus.nativeUI.closeWaiting();
             if(xhr.status == 200) {
-                //console.log("-----------检测更新成功：" + xhr.response);
-                //alert("-----------检测更新成功：" + xhr.response);
                 var resp = JSON.parse(xhr.response);
                 //console.log(typeof resp)
                 //console.log("-----------检测更新成功 解析json：" + resp.downloadAddress +"---" + resp.isUpgrade + "---" + resp.isModify);
                 downUrl = resp.downloadAddress;
-                if (resp) {
+                if (resp && resp.isUpgrade) {
                     //需要强制更新
                     //console.log("强制更新");
                     window.plus.plugintest.PluginTestFunction('update', '', '', '', function() {
