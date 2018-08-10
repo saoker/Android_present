@@ -77,7 +77,7 @@ public class PGPluginFirst extends StandardFeature {
                     //下载成功返回
                     Log.e(TAG, " download success  ");
                     tag = "download success";
-                    mContext.sendBroadcast(new Intent(BR_ACTION_CLOSE));
+//                    mContext.sendBroadcast(new Intent(BR_ACTION_CLOSE));
                 } else {
                     //下载失败不反回
                     Log.e(TAG, " download fail  ");
