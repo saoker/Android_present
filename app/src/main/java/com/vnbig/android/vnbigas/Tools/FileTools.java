@@ -25,6 +25,12 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+/**
+*@des 在线更新解压资源文件工具类
+*@param
+*@retrun
+*@time 2018/8/13 14:12
+*/
 public class FileTools {
     private static final String TAG = FileTools.class.getSimpleName();
 
@@ -33,6 +39,12 @@ public class FileTools {
     private static String localFileParentDir;//下载保存到本地的 文件 目录 路径
     private static String targetDir; //本地解压目录
 
+    /**
+    *@des 启动下载解压
+    *@param
+    *@retrun
+    *@time 2018/8/13 14:12
+    */
     public static boolean startzip(Context context) {
         String dateStr = "";
         try {
@@ -77,7 +89,12 @@ public class FileTools {
         return true;
     }
 
-    //获取当前应用包sd卡目录地址
+    /**
+    *@des 获取android sd卡目录路径
+    *@param
+    *@retrun
+    *@time 2018/8/13 14:13
+    */
     public static String getFilePath(Context context) {
         String filePath = "";
         String filePath1 = "";

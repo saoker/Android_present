@@ -1,9 +1,9 @@
 package com.H5PlusPlugin;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.vnbig.android.vnbigas.Tools.FileTools;
@@ -55,36 +55,34 @@ public class PGPluginFirst extends StandardFeature {
         // 原生代码中获取JS层传递的参数，
         // 参数的获取顺序与JS层传递的顺序一致
         String CallBackID = array.optString(0);
-        JSONArray newArray = new JSONArray();
-        newArray.put(array.optString(1));
-        newArray.put(array.optString(2));
-        newArray.put(array.optString(3));
-        newArray.put(array.optString(4));
         String ReturnValue = array.optString(1) + "-" + array.optString(2) + "-" + array.optString(3) + "-" + array.optString(4);
         Log.w(TAG, " Function ReturnValue = " + ReturnValue);
 
+        String command = array.optString(1);
+        Log.e(TAG, " command :  " + command);
 
-//        ((Activity)mContext).startActivity(new Intent(mContext, ActivityEntry.class));
-        // 调用方法将原生代码的执行结果返回给js层并触发相应的JS层回调函数
 
+        if (!TextUtils.isEmpty(command) && command.equals("update")) {
+            //原生下载更新资源文件
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
 
-        //原生下载更新资源文件
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                if (FileTools.startzip(mContext)) {
-                    //下载成功返回
-                    Log.e(TAG, " download success  ");
-                    tag = "download success";
-//                    mContext.sendBroadcast(new Intent(BR_ACTION_CLOSE));
-                } else {
-                    //下载失败不反回
-                    Log.e(TAG, " download fail  ");
-                    tag = "download fail";
+                    if (FileTools.startzip(mContext)) {
+                        //下载成功返回
+                        Log.e(TAG, " download success  ");
+                        tag = "download success";
+//                    mContext.sendBroadcast(new Intent(BR_ACTION_CLOSE));//发布关闭应用消息
+                    } else {
+                        //下载失败不反回
+                        Log.e(TAG, " download fail  ");
+                        tag = "download fail";
+                    }
                 }
-            }
-        }).start();
+            }).start();
+
+        }
+        // 调用方法将原生代码的执行结果返回给js层并触发相应的JS层回调函数
         JSUtil.execCallback(pWebview, CallBackID, tag, JSUtil.OK, false);
 
     }

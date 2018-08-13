@@ -9,6 +9,12 @@ import android.os.Message;
 import com.HBuilder.integrate.SDK_WebApp;
 import com.vnbig.android.vnbigas.Tools.FileTools;
 
+/**
+*@des 启动页面，中转启动WebApp
+*@param 
+*@retrun
+*@time 2018/8/13 11:58
+*/
 public class MainActivity extends Activity {
 
     @Override

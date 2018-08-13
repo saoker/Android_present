@@ -96,7 +96,7 @@ public class SDK_WebApp extends Activity {
             BaseInfo.mDeStatusBarBackground = getWindow().getStatusBarColor();
         }
         mEntryProxy.onResume(this);
-        registerReceiver(brApp, infBr);
+//        registerReceiver(brApp, infBr);
     }
 
     public void onNewIntent(Intent intent) {
@@ -110,7 +110,7 @@ public class SDK_WebApp extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         mEntryProxy.onStop(this);
-        unregisterReceiver(brApp);
+//        unregisterReceiver(brApp);
 
     }
 

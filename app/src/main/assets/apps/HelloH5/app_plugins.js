@@ -44,7 +44,7 @@ document.addEventListener( "plusready",  function()
     window.plus.plugintest = plugintest;
     //alert('aaaaa')
     var js = document.createElement('script')
-            js.src = 'static/js/app.5b27175778eae9cb3935.js'
+            js.src = 'static/js/app.7d61003be187f2ae9cf8.js'
             document.body.appendChild(js)
             //alert('eeee')
 }, true );
@@ -76,7 +76,6 @@ document.addEventListener( "plusready",  function()
         // 获取本地应用资源版本号
         plus.runtime.getProperty(plus.runtime.appid, function(inf) {
             versionCode = inf.version;
-            //console.log("-----------当前应用版本：" + versionCode);
             //alert("-----------当前应用版本：" + versionCode);
             checkUpdate()
             //setTimeout("checkUpdate()", "3000");
@@ -91,7 +90,7 @@ document.addEventListener( "plusready",  function()
     var downUrl; //下载地址
     function checkUpdate() {
         //版本检测地址
-        var checkUrl = "http://10.10.11.217:8083/common/version/checkappversion/_1/" + versionCode
+        var checkUrl = "https://m.vnbig.com/api/common/version/checkappversion/_0/" + versionCode
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState !== 4) {
@@ -104,25 +103,24 @@ document.addEventListener( "plusready",  function()
                 downUrl = resp.downloadAddress;
                 if (resp && resp.isUpgrade) {
                     //需要强制更新
-                    //console.log("强制更新");
                     window.plus.plugintest.PluginTestFunction('update', '', '', '', function() {
-                        alert('update成功')
+                        //alert('update成功')
                     }, function() {
-                        alert('update失败')
+                        //alert('update失败')
                     })
                 } else {
                     if(resp && resp.isModify) {
                         //需要手动更新
-                        if(confirm('检测到最新版本，是否更新？')) {
+                        var strtt = "当前版本是"+versionCode+"，检测到最新版本，是否更新？"
+                        if(confirm(strtt)) {
                             downWgt()
                         }
                     } else {
-                        console.log("已是最新版，无需更新！");
+//                        alert.("已是最新版，无需更新！");
                     }
                 }
             } else {
-                console.log("检测失败");
-                alert("-----------检测失败：");
+                //alert("-----------检测失败：");
             }
         }
         xhr.open('GET', checkUrl);
@@ -138,12 +136,10 @@ document.addEventListener( "plusready",  function()
             filename: "_doc/update/"
         }, function(d, status) { //_doc/update/默认路径
             if(status == 200) {
-                //console.log("成功：" + d.filename);
                 //open(d.filename);         // 打开下载地址
                 //installWgt(d.filename);
                 plus.runtime.install(d.filename);
             } else {
-                //console.log("打开下载页面失败！");
                 //plus.nativeUI.alert("打开下载页面失败！");
             }
             //plus.nativeUI.closeWaiting();
@@ -151,4 +147,5 @@ document.addEventListener( "plusready",  function()
     }
 }())
 
-//---------------http://test.m.tl-vnbig.com
+//---------------http://test.m.tl-vnbig.com/api/    测试地址
+//---------------https://m.vnbig.com/api/   正式地址

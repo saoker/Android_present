@@ -13,7 +13,12 @@ import android.widget.TextView;
 
 import com.vnbig.android.vnbigas.R;
 
-
+/**
+*@des  加载等待框   官方icon
+*@param
+*@retrun
+*@time 2018/8/13 11:10
+*/
 public class MyProgressView extends FrameLayout {
     Context mContext;
     ImageView loadingIv,error,logoImg;
